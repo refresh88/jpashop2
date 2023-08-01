@@ -15,8 +15,8 @@ public class Team {
     @Column(name = "USERNAME")
     private String name;
 
-    @OneToMany(mappedBy = "team") // mappedBy는 Member 클래스의 team 객체와 걸려 있다는것을 의미.
-    private List<Member> members = new ArrayList<>();
+//    @OneToMany(mappedBy = "team") // mappedBy는 Member 클래스의 team 객체와 걸려 있다는것을 의미.
+//    private List<Member> members = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -30,20 +30,7 @@ public class Team {
         return name;
     }
 
-    public List<Member> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<Member> members) {
-        this.members = members;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void addMember(Member member) {
-        member.setTeam(this);
-        members.add(member);
     }
 }

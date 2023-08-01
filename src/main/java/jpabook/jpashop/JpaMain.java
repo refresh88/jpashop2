@@ -22,8 +22,10 @@ public class JpaMain {
 
         try {
 
-            Order order = new Order();
-            order.addOrderItem(new OrderItem());
+            Member member = new Member();
+            member.setName("memberA");
+
+            em.persist(member);
 
 
             tx.commit();

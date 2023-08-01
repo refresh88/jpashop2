@@ -16,10 +16,14 @@ public class Member {
     private String street;
     private String zipcode;
 
-    // 굳이 양방향을 한다면 이렇게 넣는다.
-    @OneToMany(mappedBy = "member")
-    private List<Order> orders = new ArrayList<>();
-    // ArrayList로 초기화 해두는 것은 관례로써 add할 때 NPE 발생을 막기 위해 사용
+    @OneToOne
+    @JoinColumn(name="LOCKER_ID")
+    private Locker locker;
+
+//    // 굳이 양방향을 한다면 이렇게 넣는다.
+//    @OneToMany(mappedBy = "member")
+//    private List<Order> orders = new ArrayList<>();
+//    // ArrayList로 초기화 해두는 것은 관례로써 add할 때 NPE 발생을 막기 위해 사용
 
     public Long getId() {
         return id;
