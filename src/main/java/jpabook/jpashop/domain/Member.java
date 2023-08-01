@@ -16,9 +16,12 @@ public class Member {
     private String street;
     private String zipcode;
 
-    @OneToOne
-    @JoinColumn(name="LOCKER_ID")
-    private Locker locker;
+//    @OneToOne
+//    @JoinColumn(name="LOCKER_ID")
+//    private Locker locker;
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberProduct> memberProducts = new ArrayList<>();
 
 //    // 굳이 양방향을 한다면 이렇게 넣는다.
 //    @OneToMany(mappedBy = "member")
