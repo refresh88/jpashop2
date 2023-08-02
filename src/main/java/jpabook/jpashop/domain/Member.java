@@ -1,8 +1,9 @@
 package jpabook.jpashop.domain;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Member {
@@ -15,18 +16,6 @@ public class Member {
     private String city;
     private String street;
     private String zipcode;
-
-//    @OneToOne
-//    @JoinColumn(name="LOCKER_ID")
-//    private Locker locker;
-
-    @OneToMany(mappedBy = "member")
-    private List<MemberProduct> memberProducts = new ArrayList<>();
-
-//    // 굳이 양방향을 한다면 이렇게 넣는다.
-//    @OneToMany(mappedBy = "member")
-//    private List<Order> orders = new ArrayList<>();
-//    // ArrayList로 초기화 해두는 것은 관례로써 add할 때 NPE 발생을 막기 위해 사용
 
     public Long getId() {
         return id;
